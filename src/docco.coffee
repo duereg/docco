@@ -112,8 +112,6 @@ highlight = (source, sections, callback) ->
   code = (section.codeText for section in sections).join language.codeSplitText
   docs = (section.docsText for section in sections).join language.docsSplitText
   
-  console.log code
-
   Brush = require(language.brush).Brush
   brush = new Brush()
   brush.init({ toolbar: false })
@@ -128,8 +126,6 @@ highlight = (source, sections, callback) ->
   else
     codeFragments = output.split language.codeSplitHtml
   
-  console.log codeFragments
-
   docsFragments = showdown.makeHtml(docs).split language.docsSplitHtml
   
   for section, i in sections
@@ -244,7 +240,7 @@ template = (str) ->
        "');}return p.join('');"
 
 # The start of each Pygments highlight block.
-highlightStart = '<div class="highlight"><pre>'
+highlightStart = '<div class="syntaxhighlighter"><pre>'
 
 # The end of each Pygments highlight block.
 highlightEnd   = '</pre></div>'
