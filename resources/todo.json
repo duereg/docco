@@ -1,0 +1,10 @@
+{
+  ".ls": {"name": "livescript", "symbol": "#", "brush" : "shBrush.js" },
+  ".feature": {"name" : "gherkin", "symbol" : "#", "brush" : "shBrush.js" },
+  ".yaml": {"name" : "yaml", "symbol" : "#", "brush" : "shBrush.js" },
+  ".tex": {"name" : "tex", "symbol" : "%", "brush" : "shBrush.js" },
+  ".latex": {"name" : "tex", "symbol" : "%", "brush" : "shBrush.js" },
+  ".h": {"name" : "c", "symbol" : "//", "brush" : "shBrush.js" },
+  ".hs": {"name" : "haskell", "symbol" : "--", "brush" : "shBrush.js" },
+  ".less": {"name" : "scss", "symbol": "//", "brush" : "shBrush.js" },
+}

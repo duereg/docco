@@ -108,36 +108,35 @@ parse = (source, code) ->
 # string wherever the marker occurs.
 highlight = (source, sections, callback) ->
   language = getLanguage source
-  pygments = spawn 'pygmentize', [
-    '-l', language.name,
-    '-f', 'html',
-    '-O', 'encoding=utf-8,tabsize=2'
-  ]
-  output = ''
+  
   code = (section.codeText for section in sections).join language.codeSplitText
   docs = (section.docsText for section in sections).join language.docsSplitText
   
-  pygments.stderr.on 'data', ->
-  pygments.stdin.on 'error', ->
-  pygments.stdout.on 'data', (result) ->
-    output += result if result
-    
-  pygments.on 'exit', ->
-    output = output.replace(highlightStart, '').replace(highlightEnd, '')
-    if output is ''
-      codeFragments = (htmlEscape section.codeText for section in sections)
-    else
-      codeFragments = output.split language.codeSplitHtml
-    docsFragments = showdown.makeHtml(docs).split language.docsSplitHtml
-    
-    for section, i in sections
-      section.codeHtml = highlightStart + codeFragments[i] + highlightEnd
-      section.docsHtml = docsFragments[i]
-    callback()
-    
-  if pygments.stdin.writable
-    pygments.stdin.write code
-    pygments.stdin.end()
+  console.log code
+
+  Brush = require(language.brush).Brush
+  brush = new Brush()
+  brush.init({ toolbar: false })
+
+  output = ''
+  output = brush.getHtml code
+
+  output = output.replace(highlightStart, '').replace(highlightEnd, '')
+
+  if output is ''
+    codeFragments = (htmlEscape section.codeText for section in sections)
+  else
+    codeFragments = output.split language.codeSplitHtml
+  
+  console.log codeFragments
+
+  docsFragments = showdown.makeHtml(docs).split language.docsSplitHtml
+  
+  for section, i in sections
+    section.codeHtml = highlightStart + codeFragments[i] + highlightEnd
+    section.docsHtml = docsFragments[i]
+
+  callback()
   
 # Escape an html string, to produce valid non-highlighted output when pygments 
 # is not present on the system.
@@ -205,7 +204,8 @@ for ext, l of languages
   # The mirror of `codeSplitText` that we expect Pygments to return. We can split
   # on this to recover the original sections.
   # Note: the class is "c" for Python and "c1" for the other languages
-  l.codeSplitHtml = ///\n*<span\sclass="c1?">#{l.symbol}DIVIDER<\/span>\n*///
+  l.codeSplitHtml = RegExp("<div class=\"line[a-zA-Z0-9 ]*\"><code class=\"comments\">" + l.symbol + "DIVIDER</code></div>")
+  #///\n*<div\sclass="line*">#{l.symbol}DIVIDER<\/div>\n*///
 
   # The dividing token we feed into Showdown, to delimit the boundaries between
   # sections.

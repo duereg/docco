@@ -1,47 +1,22 @@
-{ ".coffee" :
-    {"name" : "coffee-script", "symbol" : "#"},
-  ".ls":
-    {"name": "livescript", "symbol": "#"},
-  ".rb":
-    {"name" : "ruby", "symbol" : "#"},
-  ".py":
-    {"name": "python", "symbol" : "#"},
-  ".feature":
-    {"name" : "gherkin", "symbol" : "#"},
-  ".yaml":
-    {"name" : "yaml", "symbol" : "#"},
-  ".tex":
-    {"name" : "tex", "symbol" : "%"},
-  ".latex":
-    {"name" : "tex", "symbol" : "%"},
-  ".js":
-    {"name" : "javascript", "symbol" : "//"},
-  ".java":
-    {"name" : "java", "symbol" : "//"},
-  ".sass":
-    {"name" : "sass", "symbol" : "//"},
-  ".scss":
-    {"name" : "scss", "symbol" : "//"},
-  ".c":
-    {"name" : "c", "symbol" : "//"},
-  ".h":
-    {"name" : "c", "symbol" : "//"},
-  ".cpp":
-    {"name" : "cpp", "symbol" : "//"},
-  ".php":
-    {"name" : "php", "symbol" : "//"},
-  ".hs":
-    {"name" : "haskell", "symbol" : "--"},
-  ".erl":
-    {"name" : "erlang", "symbol" : "%"},
-  ".hrl":
-    {"name" : "erlang", "symbol" : "%"},
-  ".md":
-    {"name" : "text", "symbol" : ""},
-  ".markdown":
-    {"name" : "text", "symbol" : ""},
-  ".less":
-    {"name" : "scss", "symbol": "//"},
-  ".m":
-    {"name" : "objc", "symbol": "//"}
+{ 
+  ".coffee" : {"name" : "coffee-script", "symbol" : "#", "brush" : "shBrushCoffeeScript.js" },
+  ".rb": {"name" : "ruby", "symbol" : "#", "brush" : "shBrushRuby.js" },
+  ".py": {"name": "python", "symbol" : "#", "brush" : "shBrush.js" },
+  ".js": {"name" : "javascript", "symbol" : "//", "brush" : "shBrushJScript.js" },
+  ".java": {"name" : "java", "symbol" : "//", "brush" : "shBrushJava.js" },
+  ".sass": {"name" : "sass", "symbol" : "//", "brush" : "shBrushSass.js" },
+  ".scss": {"name" : "scss", "symbol" : "//", "brush" : "shBrush.js" },
+  ".c": {"name" : "c", "symbol" : "//", "brush" : "shBrushCpp.js" },
+  ".cs": {"name" : "csharp", "symbol" : "//", "brush" : "shBrushCSharp.js" },
+  ".py": {"name" : "python", "symbol" : "//", "brush" : "shBrushPython.js" },
+  ".cpp": {"name" : "cpp", "symbol" : "//", "brush" : "shBrushCpp.js" },
+  ".php": {"name" : "php", "symbol" : "//", "brush" : "shBrushPhp.js" },
+  ".sql": {"name" : "sql", "symbol" : "//", "brush" : "shBrushSql.js" },
+  ".xml": {"name" : "xml", "symbol" : "//", "brush" : "shBrushXml.js" },
+  ".vb": {"name" : "vb", "symbol" : "//", "brush" : "shBrushVb.js" },
+  ".erl": {"name" : "erlang", "symbol" : "%", "brush" : "shBrushErlang.js" },
+  ".hrl": {"name" : "erlang", "symbol" : "%", "brush" : "shBrushErlang.js" },
+  ".md": {"name" : "text", "symbol" : "", "brush" : "shBrushPlain.js" },
+  ".markdown": {"name" : "text", "symbol" : "", "brush" : "shBrushPlain.js" },
+  ".m": {"name" : "objc", "symbol": "//", "brush" : "shBrush.js"}
 }
