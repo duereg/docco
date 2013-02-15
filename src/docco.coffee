@@ -200,8 +200,7 @@ for ext, l of languages
   # The mirror of `codeSplitText` that we expect Pygments to return. We can split
   # on this to recover the original sections.
   # Note: the class is "c" for Python and "c1" for the other languages
-  l.codeSplitHtml = RegExp("<div class=\"line[a-zA-Z0-9 ]*\"><code class=\"comments\">" + l.symbol + "DIVIDER</code></div>")
-  #///\n*<div\sclass="line*">#{l.symbol}DIVIDER<\/div>\n*///
+  l.codeSplitHtml = RegExp("<div class=\"line[a-zA-Z0-9 ]*\"><code class=\"[a-z]*\"[ ]*>" + l.symbol + "DIVIDER</code></div>")
 
   # The dividing token we feed into Showdown, to delimit the boundaries between
   # sections.
