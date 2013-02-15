@@ -10,7 +10,7 @@
 Docco is a quick-and-dirty, hundred-line-long, literate-programming-style
 documentation generator. For more information, see:
 
-http://jashkenas.github.com/docco/
+http://duereg.github.com/docco/
 
 Usage: docco [options] <filePattern ...>
 
@@ -27,5 +27,3 @@ Building and Testing:
   npm install
   cake build
   cake test
-  
-For code syntax highlighting, install Python Pygments with `sudo easy_install pygments`
